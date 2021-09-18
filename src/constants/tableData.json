@@ -1,0 +1,75 @@
+{
+  "data": [
+    {
+      "id": "23",
+      "commerce": "San ignacio",
+      "cuit": "11012312",
+      "concept1": 1,
+      "concept2": 2,
+      "concept3": 3,
+      "concept4": 4,
+      "concept5": 5,
+      "concept6": 6,
+      "balance": 120000,
+      "active": false,
+      "lastSell": ""
+   },
+   {
+    "id": "230",
+    "commerce": "San Vicente",
+    "cuit": "11012312",
+    "concept1": 1,
+    "concept2": 2,
+    "concept3": 3,
+    "concept4": 4,
+    "concept5": 5,
+    "concept6": 6,
+    "balance": 120000,
+    "active": false,
+    "lastSell": ""
+ },
+ {
+  "id": "23000",
+  "commerce": "San Marcos",
+  "cuit": "11012312",
+  "concept1": 1,
+  "concept2": 2,
+  "concept3": 3,
+  "concept4": 4,
+  "concept5": 5,
+  "concept6": 6,
+  "balance": 120000,
+  "active": false,
+  "lastSell": ""
+},
+{
+  "id": "255",
+  "commerce": "Casa Nueva",
+  "cuit": "11012312",
+  "concept1": 1,
+  "concept2": 2,
+  "concept3": 3,
+  "concept4": 4,
+  "concept5": 5,
+  "concept6": 6,
+  "balance": 120000,
+  "active": false,
+  "lastSell": ""
+},
+{
+  "id": "1234",
+  "commerce": "Campos Eliseos",
+  "cuit": "11012312",
+  "concept1": 1,
+  "concept2": 2,
+  "concept3": 3,
+  "concept4": 4,
+  "concept5": 5,
+  "concept6": 6,
+  "balance": 120000,
+  "active": false,
+  "lastSell": ""
+}
+
+  ]
+}

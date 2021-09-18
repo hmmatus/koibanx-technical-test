@@ -1,0 +1,9 @@
+th {
+  min-width: 2em;
+}
+
+.container {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
