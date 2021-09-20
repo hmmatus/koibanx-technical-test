@@ -36,12 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.table-container {
-  display: flex;
-  flex: 1;
-}
-
-.search-input {
-  min-width: 50%;
-}

@@ -69,7 +69,24 @@
   "balance": 120000,
   "active": false,
   "lastSell": ""
+},
+{
+  "id": "1189",
+  "commerce": "Tierras de Jack",
+  "cuit": "1189541",
+  "concept1": 1,
+  "concept2": 2,
+  "concept3": 3,
+  "concept4": 4,
+  "concept5": 5,
+  "concept6": 6,
+  "balance": 120000,
+  "active": false,
+  "lastSell": ""
 }
-
-  ]
+  ],
+  "page": 1,
+  "pages": 100,
+  "rowsPerPage": 10,
+  "total": 1000
 }

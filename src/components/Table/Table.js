@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TableRow from '../TableRow/TableRow';
 import './index.css'
 
 const Table = ({ data }) => {
-  return <table className='container'>
+  return <table className='table-container'>
     <thead>
       <tr>
         <th>ID</th>
@@ -29,3 +30,9 @@ const Table = ({ data }) => {
 };
 
 export default Table;
+
+Table.popTypes = {
+  data: PropTypes.arrayOf({
+
+  }).isRequired
+};
