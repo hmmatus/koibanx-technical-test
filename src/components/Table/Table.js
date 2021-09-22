@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TableRow from '../TableRow/TableRow';
-import './index.css'
+import Table from 'react-bootstrap/Table';
+import './index.css';
 
-const Table = ({ data }) => {
-  return <table className='table-container'>
+const TableComponent = ({ data }) => {
+
+  
+  useEffect(() => {
+    console.log("🚀 ~ file: Table.js ~ line 11 ~ TableComponent ~ data", data);
+  });
+  return <Table class="searchable sortable" striped bordered hover>
     <thead>
       <tr>
         <th>ID</th>
@@ -22,16 +28,16 @@ const Table = ({ data }) => {
       </tr>
     </thead>
     <tbody>
-    {data.map((item) => (
-      <TableRow item={item} key={item.id}/>
+    {data?.map((item) => (
+      <TableRow item={item} key={item?.id}/>
     ))}
     </tbody>
-  </table>
+  </Table>
 };
 
-export default Table;
+export default TableComponent;
 
-Table.popTypes = {
+TableComponent.propTypes = {
   data: PropTypes.arrayOf({
 
   }).isRequired
