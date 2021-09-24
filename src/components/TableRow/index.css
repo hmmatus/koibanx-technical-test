@@ -1,0 +1,13 @@
+td {
+  text-align: center;
+}
+
+.status-icon {
+  width: 2px;
+  height: 2px;
+}
+
+.status-container {
+  flex-direction: row;
+  margin-right: 2px;
+}

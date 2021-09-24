@@ -2,6 +2,7 @@
   display: flex;
   flex: 1;
   margin: 2em;
+  border-width: 2px;
 }
 
 .search-input {

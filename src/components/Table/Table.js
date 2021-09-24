@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import TableRow from '../TableRow/TableRow';
 import Table from 'react-bootstrap/Table';
@@ -6,11 +6,7 @@ import './index.css';
 
 const TableComponent = ({ data }) => {
 
-  
-  useEffect(() => {
-    console.log("🚀 ~ file: Table.js ~ line 11 ~ TableComponent ~ data", data);
-  });
-  return <Table class="searchable sortable" striped bordered hover>
+  return <Table striped bordered hover>
     <thead>
       <tr>
         <th>ID</th>
@@ -38,7 +34,9 @@ const TableComponent = ({ data }) => {
 export default TableComponent;
 
 TableComponent.propTypes = {
-  data: PropTypes.arrayOf({
-
-  }).isRequired
+  data: PropTypes.array
 };
+
+TableComponent.defaultProps = {
+  data: [],
+}

@@ -1,6 +1,7 @@
-import React, { useState, useEffect }  from 'react'
+import React, { useState, useEffect }  from 'react';
 import TableScreen from './app/Screens/TableScreen';
 import LoadingScreen from './app/Screens/LoadingScreen';
+import {Provider as AppContext} from './context';
 
 const App  = () => {
   const [loading, setLoading] = useState(true);
@@ -11,7 +12,11 @@ const App  = () => {
     }, 3000);
   }, []);
 
-  return loading ? <LoadingScreen /> : <TableScreen />;
+  return (
+    <AppContext>
+      {loading ? <LoadingScreen /> : <TableScreen />}
+    </AppContext>
+  )
 };
 
 export default App;

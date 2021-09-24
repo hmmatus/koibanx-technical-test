@@ -1,59 +1,82 @@
-import React, { useState, useEffect } from 'react';
-import Spinner from 'react-bootstrap/Spinner'
+import React, { useState, useEffect, useContext } from 'react';
+import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button';
 import './index.css';
 import TableComponent from '../../../components/Table/Table';
 import tableData from '../../../constants/tableData.json';
 import SearchBar from '../../../components/SearchBar/Searchbar';
 import PaginationComponent from '../../../components/Pagination/Pagination';
+import {selectAllFromTable, getQuery} from '../../../api/TableQuery';
+
+// Context
+import { Context } from '../../../context'
 const TableScreen = () => {
+  const {
+    data,
+    setData
+  } = useContext(Context);
+
   // State
-   const [data, setData] = useState([]);
+   const [currentData, setCurrentData] = useState([]);
    const [advancedSearch, setAdvancedSearch] = useState(false);
-   const [localLoading, setLocalLoading] = useState(false);
+   const [localLoading, setLocalLoading] = useState(true);
+   const [currentPage, setCurrentPage] = useState(tableData?.page || 1);
 
 
-   const handleOnSubmit = (formData) => {
-     // setLocalLoading(true);
-   console.log("🚀 ~ file: index.js ~ line 14 ~ handleOnSubmit ~ formData", formData);
-    const searchValue = formData?.input ? formData?.input : formData?.id
-     const data = tableData.data;
-     if (searchValue !== '') {
-       const newArray = data.filter((commerce) => {
-       console.log("🚀 ~ file: index.js ~ line 18 ~ newArray ~ commerce", `SearchValue ${searchValue} includes ${commerce?.id.includes(searchValue)}`)
-        return commerce?.id.includes(searchValue) || commerce?.commerce.includes(searchValue) || commerce?.cuit.includes(searchValue)
-       });
-       setData(newArray);
+   const handleOnSubmit = async (formData) => {
+   console.log("🚀 ~ file: index.js ~ line 27 ~ handleOnSubmit ~ formData", formData);
+    setLocalLoading(true);
+    setData({
+      ...data,
+      searchData: {
+        ...formData
+      },
+      page: currentPage,
+    });
+    const queryResponse = await getQuery({
+      ...formData?.data,
+      page: currentPage
+    });
+    if (queryResponse?.status !== 'error') {
+      // setCurrentData(queryResponse?.data);
+      console.log('Query Success');
     } else {
-      setData(tableData.data);
-    } 
+      alert('There was an error with the query, try later');
+    }
+    setLocalLoading(false);
    };
 
-   // Funcion que simula la llamada a la api
-   const tableQuery = () => {
-
-   }
-
    const onChangeCurrentPage = (page) => {
-
+    setCurrentPage(page);
    }
 
    // useEffect
    useEffect(() => {
-     setData(tableData);
-    console.log("🚀 ~ file: index.js ~ line 43 ~ useEffect ~ tableData", tableData);
+     selectAllFromTable();
+     setCurrentData(tableData);
+     setData({
+       ...tableData,
+     });
+     setLocalLoading(false);
    },[]);
+
+   useEffect(() => {
+    handleOnSubmit(data?.searchData);
+   },[currentPage]);
 
   return (
     <div className="table-container">
       {!localLoading ? <>
       <div className="searchbar-container">
-        <SearchBar advancedSearchbar={advancedSearch} onChangeAdvancedSearchBar={(status) => setAdvancedSearch(status)} handleOnSubmit={(data) => handleOnSubmit(data)}/>
+        <SearchBar advancedSearchbar={advancedSearch} onChangeAdvancedSearchBar={setAdvancedSearch} handleOnSubmit={handleOnSubmit}/>
+        <br />
+        <Button variant={advancedSearch ? "outline-primary" : "primary"} onClick={() => setAdvancedSearch((current => !current))}>Busqueda Avanzada</Button>
       </div>
       <div className="table-container">
-        <TableComponent data={data.data} />
+        <TableComponent data={currentData.data} />
       </div>
       <div className="pagination-container">
-        <PaginationComponent currentPage={data?.page} totalPages={data?.pages}/>
+        <PaginationComponent onChangeCurrentPage={(current) => onChangeCurrentPage(current)} currentPage={currentPage} totalPages={currentData?.pages}/>
       </div>
       </> : <Spinner animation="border" role="status">
   <span className="visually-hidden">Loading...</span>
