@@ -12,7 +12,7 @@
       "concept6": 6,
       "balance": 120000,
       "active": false,
-      "lastSell": ""
+      "lastSell": "12/02/2020"
    },
    {
     "id": "230",
@@ -25,8 +25,8 @@
     "concept5": 5,
     "concept6": 6,
     "balance": 120000,
-    "active": false,
-    "lastSell": ""
+    "active": true,
+    "lastSell": "12/02/2020"
  },
  {
   "id": "23000",
@@ -40,7 +40,7 @@
   "concept6": 6,
   "balance": 120000,
   "active": false,
-  "lastSell": ""
+  "lastSell": "12/03/2020"
 },
 {
   "id": "255",
@@ -53,8 +53,8 @@
   "concept5": 5,
   "concept6": 6,
   "balance": 120000,
-  "active": false,
-  "lastSell": ""
+  "active": true,
+  "lastSell": "01/03/2020"
 },
 {
   "id": "1234",
@@ -68,7 +68,7 @@
   "concept6": 6,
   "balance": 120000,
   "active": false,
-  "lastSell": ""
+  "lastSell": "12/01/2020"
 },
 {
   "id": "1189",
@@ -82,7 +82,7 @@
   "concept6": 6,
   "balance": 120000,
   "active": false,
-  "lastSell": ""
+  "lastSell": "12/01/2020"
 }
   ],
   "page": 1,

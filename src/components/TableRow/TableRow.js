@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
 
-const ActiveIcon = (status) => {
-  return (<div className="status-icon" style={{backgroundColors: status === '0' ? 'green' : 'red'}}></div>)
+const ActiveIcon = ({status}) => {
+  return (<div className="status-icon" style={{backgroundColor: status ? 'green' : 'red'}}></div>)
 }
 
 const TableRow = ({ item }) => (
@@ -20,7 +20,7 @@ const TableRow = ({ item }) => (
     <td>{item?.balance}</td>
     <td className="status-container">
       <ActiveIcon status={item?.active}/>
-      {item?.active}
+      {item?.active ? 'Activo' : 'Inactivo'}
       </td>
     <td>{item?.lastSell}</td>
   </tr>
