@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from 'react';
-import TableScreen from './app/Screens/TableScreen';
-import LoadingScreen from './app/Screens/LoadingScreen';
+import TableScreen from './Screens/TableScreen';
+import LoadingScreen from './Screens/LoadingScreen';
 import {Provider as AppContext} from './context';
 
 const App  = () => {

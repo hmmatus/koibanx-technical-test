@@ -1,15 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 import Button from 'react-bootstrap/Button';
 import './index.css';
-import TableComponent from '../../../components/Table/Table';
-import tableData from '../../../constants/tableData.json';
-import SearchBar from '../../../components/SearchBar/Searchbar';
-import PaginationComponent from '../../../components/Pagination/Pagination';
-import {selectAllFromTable, getQuery} from '../../../api/TableQuery';
+import TableComponent from '../../components/Table/Table';
+import tableData from '../../constants/tableData.json';
+import SearchBar from '../../components/SearchBar/Searchbar';
+import PaginationComponent from '../../components/Pagination/Pagination';
+import {selectAllFromTable, getQuery} from '../../api/TableQuery';
 
 // Context
-import { Context } from '../../../context'
+import { Context } from '../../context'
 const TableScreen = () => {
   const {
     data,
@@ -23,8 +24,8 @@ const TableScreen = () => {
    const [currentPage, setCurrentPage] = useState(tableData?.page || 1);
 
 
-   const handleOnSubmit = async (formData) => {
-   console.log("🚀 ~ file: index.js ~ line 27 ~ handleOnSubmit ~ formData", formData);
+   const handleOnSubmit = async (formData, resetCurrent) => {
+     if (resetCurrent) setCurrentPage(1);
     setLocalLoading(true);
     setData({
       ...data,

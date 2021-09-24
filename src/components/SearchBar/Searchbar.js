@@ -39,8 +39,8 @@ const SearchBar = ({
         id: idSearchInput,
         commerce: commerceSearchInput,
         cuit: cuitSearchInput,
-        status: statusSearchInput === 0,
-      });
+        status: statusSearchInput,
+      }, true);
     }
 
     if (!advancedSearchbar) return null;
@@ -68,7 +68,7 @@ const SearchBar = ({
             name="group1"
             label="Activo"
             value={statusSearchInput}
-            onChange={() => handleOnChangeSearch('status', 0)} />
+            onChange={() => handleOnChangeSearch('status', true)} />
           <Form.Check
             required
             type="radio"
@@ -76,7 +76,7 @@ const SearchBar = ({
             label="Inactivo"
             name="group1"
             value={statusSearchInput}
-            onChange={() => handleOnChangeSearch('status', 1)} />
+            onChange={() => handleOnChangeSearch('status', false)} />
         </Form.Group>
         <Button type="submit">Buscar</Button>
       </Form>
